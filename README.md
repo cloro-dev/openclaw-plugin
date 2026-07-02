@@ -123,7 +123,7 @@ Nothing is hidden — the plugin is a thin client over `POST https://api.cloro.d
 ## Learn more
 
 - **API documentation:** [cloro.dev/docs](https://cloro.dev/docs/)
-- **OpenClaw integration guide:** [cloro.dev/docs/guides/openclaw](https://cloro.dev/docs/guides/openclaw)
+- **OpenClaw integration guide:** [cloro.dev/docs/integrations/openclaw](https://cloro.dev/docs/integrations/openclaw)
 - **Provider pricing:** [cloro.dev/docs/guides/providers](https://cloro.dev/docs/guides/providers)
 
 ## Contact us
