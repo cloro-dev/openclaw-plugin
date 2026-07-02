@@ -13,6 +13,12 @@
     "serp"
   ],
   "homepage": "https://cloro.dev",
+  "scripts": {
+    "build": "esbuild index.ts --format=esm --target=node20 --outfile=dist/index.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  },
   "openclaw": {
     "extensions": ["./index.ts"],
     "compat": {
