@@ -1,7 +1,28 @@
 {
   "id": "cloro",
   "name": "cloro",
+  "version": "0.1.0",
   "description": "Monitor how AI assistants and Google answer any prompt — real ChatGPT, Perplexity, Gemini, Copilot, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources, via the cloro API.",
+  "setup": {
+    "providers": [
+      {
+        "id": "cloro",
+        "envVars": ["CLORO_API_KEY"],
+        "authMethods": ["api-key"]
+      }
+    ]
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "cloro API key",
+      "sensitive": true,
+      "help": "Falls back to the CLORO_API_KEY environment variable. Get a key at https://dashboard.cloro.dev."
+    }
+  },
+  "skills": ["./skills"],
+  "activation": {
+    "onStartup": true
+  },
   "contracts": {
     "tools": [
       "cloro_chatgpt",
