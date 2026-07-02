@@ -14,6 +14,12 @@
   ],
   "homepage": "https://cloro.dev",
   "openclaw": {
-    "extensions": ["./index.ts"]
+    "extensions": ["./index.ts"],
+    "compat": {
+      "pluginApi": ">=2026.6.11"
+    },
+    "build": {
+      "openclawVersion": "2026.6.11"
+    }
   }
 }
