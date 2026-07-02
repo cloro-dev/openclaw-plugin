@@ -1,5 +1,5 @@
 {
-  "name": "@cloro/openclaw-plugin",
+  "name": "@cloro-dev/openclaw-plugin",
   "version": "0.1.0",
   "type": "module",
   "description": "OpenClaw plugin exposing cloro's AI-visibility monitoring tools: ChatGPT, Perplexity, Gemini, Copilot, Google AI Mode, Google Search, and Google News.",
