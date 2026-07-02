@@ -1,0 +1,41 @@
+{
+  "id": "cloro",
+  "name": "cloro",
+  "description": "Monitor how AI assistants and Google answer any prompt — real ChatGPT, Perplexity, Gemini, Copilot, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources, via the cloro API.",
+  "contracts": {
+    "tools": [
+      "cloro_chatgpt",
+      "cloro_perplexity",
+      "cloro_gemini",
+      "cloro_copilot",
+      "cloro_aimode",
+      "cloro_google",
+      "cloro_google_news"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "cloro API key. Falls back to the CLORO_API_KEY environment variable. Get one at https://dashboard.cloro.dev."
+      },
+      "baseUrl": {
+        "type": "string",
+        "default": "https://api.cloro.dev",
+        "description": "cloro API base URL"
+      },
+      "defaultCountry": {
+        "type": "string",
+        "default": "us",
+        "description": "ISO 3166-1 alpha-2 country code used when a tool call omits the country parameter"
+      },
+      "timeoutSeconds": {
+        "type": "number",
+        "default": 300,
+        "description": "Per-request timeout in seconds. Monitor requests drive real provider sessions and can take a while."
+      }
+    }
+  }
+}
