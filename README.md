@@ -94,6 +94,8 @@ All assistant tools (`cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro
 | `country` | ISO 3166-1 alpha-2 country code for a localized response | `defaultCountry` |
 | `state` | US state code (e.g. `CA`, `TX`) for state-level geo-targeting (+2 credits) | – |
 
+`cloro_chatgpt` also accepts `prompt` as an array of up to 5 prompts for a [multi-turn conversation](https://cloro.dev/docs/api-reference/endpoint/monitor-chatgpt#multi-turn-conversations). The result is then an array with one response for each prompt. Each prompt after the first costs +1 credit.
+
 `cloro_aimode` accepts `prompt`, `country`, and an optional Google canonical `location` (e.g. `Austin,Texas,United States`).
 
 `cloro_google` accepts `query`, `country`, `location`, `device` (`desktop`/`mobile`), `pages` (1–10), and `aiOverview` (include Google's AI Overview as markdown with sources, +2 credits).

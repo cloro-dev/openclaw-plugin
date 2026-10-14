@@ -79,7 +79,15 @@ var index_default = definePluginEntry({
         name: provider.tool,
         description: provider.description,
         parameters: Type.Object({
-          prompt: Type.String({ description: "The prompt to send to the assistant" }),
+          prompt: provider.tool === "cloro_chatgpt" ? Type.Union(
+            [
+              Type.String(),
+              Type.Array(Type.String(), { minItems: 1, maxItems: 5 })
+            ],
+            {
+              description: "The prompt to send to ChatGPT, or an array of up to 5 prompts for a multi-turn conversation. ChatGPT answers the prompts in order and the result is an array with one response for each prompt. Each prompt after the first adds +1 credit and more time."
+            }
+          ) : Type.String({ description: "The prompt to send to the assistant" }),
           country: Type.Optional(
             Type.String({
               description: `ISO 3166-1 alpha-2 country code for a localized response (default: ${defaultCountry})`
