@@ -9,7 +9,8 @@ The cloro plugin exposes seven tools that submit prompts to real provider interf
 
 ## Picking the right tool
 
-- `cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro_copilot`, `cloro_aimode` — ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare.
+- `cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro_copilot`, `cloro_aimode` — ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare. Do not call `cloro_perplexity` for now: Perplexity is temporarily unavailable and every call fails with a `400` (`MODEL_UNAVAILABLE`).
+- There is no Grok tool. Grok is discontinued: grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers.
 - `cloro_google` — Google Search results: organic ranking, People Also Ask, knowledge graph. Set `aiOverview: true` when the question is about Google's AI Overview.
 - `cloro_google_news` — news articles about a brand or topic.
 

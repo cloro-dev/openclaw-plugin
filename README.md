@@ -114,9 +114,11 @@ Built-in web search returns links. These tools return what AI assistants actuall
 
 Monitor requests drive real provider sessions, so they take noticeably longer than a plain HTTP API — often tens of seconds. The plugin's default timeout is 300 seconds; raise `timeoutSeconds` if needed. cloro retries failures internally.
 
-### What about Grok?
+### What about Perplexity and Grok?
 
-Grok is temporarily unavailable upstream (anonymous access is blocked), so the plugin doesn't expose a Grok tool. See the [providers guide](https://cloro.dev/docs/guides/providers) for current status.
+Perplexity is temporarily unavailable. The cloro API rejects Perplexity requests with a `400` (`MODEL_UNAVAILABLE`), at no credit cost. `cloro_perplexity` is still registered, but its calls fail until Perplexity is back. The [changelog](https://cloro.dev/docs/changelog) will say when that is.
+
+Grok is discontinued: grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers and the plugin has no Grok tool.
 
 ### How is this different from running the cloro API directly?
 
