@@ -11,7 +11,7 @@ Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"),
 | Tool | What it does | Base cost |
 | ------------------- | ---------------------------------------------------------------------------- | -------------- |
 | `cloro_chatgpt` | Prompt the real ChatGPT web app, get the answer plus cited sources | 5 credits |
-| `cloro_perplexity` | Prompt Perplexity, get the answer plus cited sources | 3 credits |
+| `cloro_perplexity` | Prompt Perplexity, get the answer plus cited sources | 4 credits |
 | `cloro_gemini` | Prompt Google Gemini, get the answer plus cited sources | 4 credits |
 | `cloro_copilot` | Prompt Microsoft Copilot, get the answer plus cited sources | 5 credits |
 | `cloro_aimode` | Prompt Google AI Mode, get the answer plus cited sources | 4 credits |
