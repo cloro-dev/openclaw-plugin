@@ -5,12 +5,14 @@ description: Monitor how AI assistants and Google answer any prompt with the clo
 
 # Using the cloro tools
 
-The cloro plugin exposes seven tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
+The cloro plugin exposes five tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
 
 ## Picking the right tool
 
-- `cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro_copilot`, `cloro_aimode` — ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare.
+- `cloro_chatgpt`, `cloro_gemini`, `cloro_aimode`: ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare.
 - There is no Grok tool. Grok is discontinued: grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers.
+- There is no Perplexity tool. cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions.
+- There is no Microsoft Copilot tool. cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions.
 - `cloro_google` — Google Search results: organic ranking, People Also Ask, knowledge graph. Set `aiOverview: true` when the question is about Google's AI Overview.
 - `cloro_google_news` — news articles about a brand or topic.
 
@@ -26,5 +28,5 @@ These tools query live provider sessions; they are for observing what providers 
 ## Example prompts this skill serves
 
 - "Does Google's AI Overview for 'ai visibility tracking' mention cloro? Check the US and Germany."
-- "Compare how Perplexity and Copilot answer 'best CRM for startups' and list the sources each cites."
+- "Compare how ChatGPT and Gemini answer 'best CRM for startups' and list the sources each cites."
 - "Pull the latest Google News articles about our brand."

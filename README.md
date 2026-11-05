@@ -2,7 +2,7 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds seven tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Perplexity, Gemini, Copilot, and Google AI Mode interfaces — plus Google Search and Google News — and return parsed responses with cited sources as structured JSON.
+The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds five tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Gemini, and Google AI Mode interfaces, and to Google Search and Google News. The tools return parsed responses with cited sources as structured JSON.
 
 Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"), checking which sources AI assistants cite for a query, tracking Google AI Overviews, rank tracking, and news monitoring — all from a chat with your agent.
 
@@ -11,9 +11,7 @@ Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"),
 | Tool | What it does | Base cost |
 | ------------------- | ---------------------------------------------------------------------------- | -------------- |
 | `cloro_chatgpt` | Prompt the real ChatGPT web app, get the answer plus cited sources | 5 credits |
-| `cloro_perplexity` | Prompt Perplexity, get the answer plus cited sources | 4 credits |
 | `cloro_gemini` | Prompt Google Gemini, get the answer plus cited sources | 4 credits |
-| `cloro_copilot` | Prompt Microsoft Copilot, get the answer plus cited sources | 5 credits |
 | `cloro_aimode` | Prompt Google AI Mode, get the answer plus cited sources | 4 credits |
 | `cloro_google` | Google Search: organic results, People Also Ask, optional AI Overview (+2) | 3 credits |
 | `cloro_google_news` | Google News articles with titles, snippets, sources, and dates | 3 credits |
@@ -79,14 +77,14 @@ Once enabled, just ask your agent. Examples:
 
 - "Ask ChatGPT what the best SERP APIs are and list which vendors it cites."
 - "Check whether Google's AI Overview for 'best ai seo tools' mentions cloro."
-- "Compare how Perplexity and Copilot answer 'best CRM for startups' — which sources do they cite?"
+- "Compare how ChatGPT and Gemini answer 'best CRM for startups'. Which sources do they cite?"
 - "Pull the latest Google News articles about our brand in Germany."
 
 Each tool returns the parsed cloro result as JSON — response text, sources with URLs and titles, and provider-specific extras — so the agent can quote, compare, and summarize directly.
 
 ### Tool parameters
 
-All assistant tools (`cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro_copilot`) accept:
+The assistant tools `cloro_chatgpt` and `cloro_gemini` accept:
 
 | Parameter | Description | Default |
 | ---------- | ------------------------------------------------------------------------------ | ------------------ |
@@ -108,13 +106,17 @@ All assistant tools (`cloro_chatgpt`, `cloro_perplexity`, `cloro_gemini`, `cloro
 
 ### Why not use the agent's built-in web search?
 
-Built-in web search returns links. These tools return what AI assistants actually *answer* — the exact response text a real user sees in ChatGPT, Perplexity, Gemini, Copilot, or Google AI Mode, with the sources each assistant cited. That is the data you need for AI-visibility and brand monitoring, and it isn't available from a search API.
+Built-in web search returns links. These tools return what AI assistants actually *answer*: the exact response text a real user sees in ChatGPT, Gemini, or Google AI Mode, with the sources each assistant cited. That is the data you need for AI-visibility and brand monitoring, and it isn't available from a search API.
 
 ### How long do requests take?
 
 Monitor requests drive real provider sessions, so they take noticeably longer than a plain HTTP API — often tens of seconds. The plugin's default timeout is 300 seconds; raise `timeoutSeconds` if needed. cloro retries failures internally.
 
-### What about Grok?
+### What about Perplexity, Microsoft Copilot and Grok?
+
+cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions. The plugin has no Perplexity tool.
+
+cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions. The plugin has no Microsoft Copilot tool.
 
 Grok is discontinued: grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers and the plugin has no Grok tool.
 

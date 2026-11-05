@@ -2,7 +2,7 @@
   "id": "cloro",
   "name": "cloro",
   "version": "0.1.0",
-  "description": "Monitor how AI assistants and Google answer any prompt — real ChatGPT, Perplexity, Gemini, Copilot, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources, via the cloro API.",
+  "description": "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources, via the cloro API.",
   "setup": {
     "providers": [
       {
@@ -26,9 +26,7 @@
   "contracts": {
     "tools": [
       "cloro_chatgpt",
-      "cloro_perplexity",
       "cloro_gemini",
-      "cloro_copilot",
       "cloro_aimode",
       "cloro_google",
       "cloro_google_news"
