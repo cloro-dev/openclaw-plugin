@@ -77,25 +77,11 @@ const ASSISTANT_PROVIDERS = [
       "Use for AI-visibility monitoring: how ChatGPT answers a question, which brands it mentions, and which sources it cites.",
   },
   {
-    tool: "cloro_perplexity",
-    path: "/v1/monitor/perplexity",
-    description:
-      "Ask Perplexity a prompt via cloro and get the parsed answer with cited sources. " +
-      "Use for AI-visibility monitoring of Perplexity answers, brand mentions, and citations.",
-  },
-  {
     tool: "cloro_gemini",
     path: "/v1/monitor/gemini",
     description:
       "Ask Google Gemini a prompt via cloro and get the parsed answer with cited sources. " +
       "Use for AI-visibility monitoring of Gemini answers, brand mentions, and citations.",
-  },
-  {
-    tool: "cloro_copilot",
-    path: "/v1/monitor/copilot",
-    description:
-      "Ask Microsoft Copilot a prompt via cloro and get the parsed answer with cited sources. " +
-      "Use for AI-visibility monitoring of Copilot answers, brand mentions, and citations.",
   },
 ] as const;
 
@@ -103,8 +89,8 @@ export default definePluginEntry({
   id: "cloro",
   name: "cloro",
   description:
-    "Monitor how AI assistants and Google answer any prompt — real ChatGPT, Perplexity, Gemini, " +
-    "Copilot, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources.",
+    "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, " +
+    "Google AI Mode, Google Search, and Google News responses with parsed text and cited sources.",
   register(api) {
     const cfg = (api.pluginConfig ?? {}) as CloroPluginConfig;
     const defaultCountry = cfg.defaultCountry ?? DEFAULT_COUNTRY;
