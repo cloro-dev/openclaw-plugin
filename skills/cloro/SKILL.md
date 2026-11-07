@@ -5,11 +5,11 @@ description: Monitor how AI assistants and Google answer any prompt with the clo
 
 # Using the cloro tools
 
-The cloro plugin exposes five tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
+The cloro plugin exposes six tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
 
 ## Picking the right tool
 
-- `cloro_chatgpt`, `cloro_gemini`, `cloro_aimode`: ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare.
+- `cloro_chatgpt`, `cloro_gemini`, `cloro_aimode`, `cloro_bing_aimode`: ask an AI assistant a prompt and inspect its answer, brand mentions, and cited sources. Pick the tool for the assistant the user names; when they say "AI assistants" generally, query several and compare.
 - There is no Grok tool. Grok is discontinued: grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers.
 - There is no Perplexity tool. cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions.
 - There is no Microsoft Copilot tool. cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions.

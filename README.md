@@ -2,7 +2,7 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds five tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Gemini, and Google AI Mode interfaces, and to Google Search and Google News. The tools return parsed responses with cited sources as structured JSON.
+The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds six tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Gemini, Google AI Mode, and Bing AI Mode interfaces, and to Google Search and Google News. The tools return parsed responses with cited sources as structured JSON.
 
 Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"), checking which sources AI assistants cite for a query, tracking Google AI Overviews, rank tracking, and news monitoring — all from a chat with your agent.
 
@@ -13,6 +13,7 @@ Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"),
 | `cloro_chatgpt` | Prompt the real ChatGPT web app, get the answer plus cited sources | 5 credits |
 | `cloro_gemini` | Prompt Google Gemini, get the answer plus cited sources | 4 credits |
 | `cloro_aimode` | Prompt Google AI Mode, get the answer plus cited sources | 4 credits |
+| `cloro_bing_aimode` | Prompt Bing AI Mode, get the answer plus cited sources and citation pills | 4 credits |
 | `cloro_google` | Google Search: organic results, People Also Ask, optional AI Overview (+2) | 3 credits |
 | `cloro_google_news` | Google News articles with titles, snippets, sources, and dates | 3 credits |
 
@@ -84,7 +85,7 @@ Each tool returns the parsed cloro result as JSON — response text, sources wit
 
 ### Tool parameters
 
-The assistant tools `cloro_chatgpt` and `cloro_gemini` accept:
+The assistant tools `cloro_chatgpt`, `cloro_gemini`, and `cloro_bing_aimode` accept:
 
 | Parameter | Description | Default |
 | ---------- | ------------------------------------------------------------------------------ | ------------------ |
@@ -93,6 +94,8 @@ The assistant tools `cloro_chatgpt` and `cloro_gemini` accept:
 | `state` | US state code (e.g. `CA`, `TX`) for state-level geo-targeting (+2 credits) | – |
 
 `cloro_chatgpt` also accepts `prompt` as an array of up to 5 prompts for a [multi-turn conversation](https://cloro.dev/docs/api-reference/endpoint/monitor-chatgpt#multi-turn-conversations). The result is then an array with one response for each prompt. Each prompt after the first costs +1 credit.
+
+For `cloro_bing_aimode`, the prompt can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts).
 
 `cloro_aimode` accepts `prompt`, `country`, and an optional Google canonical `location` (e.g. `Austin,Texas,United States`).
 
@@ -106,7 +109,7 @@ The assistant tools `cloro_chatgpt` and `cloro_gemini` accept:
 
 ### Why not use the agent's built-in web search?
 
-Built-in web search returns links. These tools return what AI assistants actually *answer*: the exact response text a real user sees in ChatGPT, Gemini, or Google AI Mode, with the sources each assistant cited. That is the data you need for AI-visibility and brand monitoring, and it isn't available from a search API.
+Built-in web search returns links. These tools return what AI assistants actually *answer*: the exact response text a real user sees in ChatGPT, Gemini, Google AI Mode, or Bing AI Mode, with the sources each assistant cited. That is the data you need for AI-visibility and brand monitoring, and it isn't available from a search API.
 
 ### How long do requests take?
 
