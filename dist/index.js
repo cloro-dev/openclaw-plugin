@@ -55,12 +55,17 @@ const ASSISTANT_PROVIDERS = [
     tool: "cloro_gemini",
     path: "/v1/monitor/gemini",
     description: "Ask Google Gemini a prompt via cloro and get the parsed answer with cited sources. Use for AI-visibility monitoring of Gemini answers, brand mentions, and citations."
+  },
+  {
+    tool: "cloro_bing_aimode",
+    path: "/v1/monitor/bing/aimode",
+    description: "Ask Bing AI Mode a prompt via cloro and get the parsed answer with cited sources and citation pills. Use for AI-visibility monitoring of Bing AI Mode answers, brand mentions, and citations. The prompt can have a maximum of 3,500 characters after URL encoding, fewer for non-Latin scripts."
   }
 ];
 var index_default = definePluginEntry({
   id: "cloro",
   name: "cloro",
-  description: "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, Google AI Mode, Google Search, and Google News responses with parsed text and cited sources.",
+  description: "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, Google AI Mode, Bing AI Mode, Google Search, and Google News responses with parsed text and cited sources.",
   register(api) {
     const cfg = api.pluginConfig ?? {};
     const defaultCountry = cfg.defaultCountry ?? DEFAULT_COUNTRY;
