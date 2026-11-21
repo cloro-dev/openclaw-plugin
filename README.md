@@ -2,7 +2,7 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds six tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Gemini, Google AI Mode, and Bing AI Mode interfaces, and to Google Search and Google News. The tools return parsed responses with cited sources as structured JSON.
+The cloro plugin for [OpenClaw](https://openclaw.ai) lets your OpenClaw agent see what AI assistants and Google actually answer. It adds seven tools backed by the [cloro API](https://cloro.dev/docs/) that submit prompts to the real ChatGPT, Gemini, Google AI Mode, and Bing AI Mode interfaces, and to Google Search, Bing Search, and Google News. The tools return parsed responses with cited sources as structured JSON.
 
 Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"), checking which sources AI assistants cite for a query, tracking Google AI Overviews, rank tracking, and news monitoring — all from a chat with your agent.
 
@@ -15,6 +15,7 @@ Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"),
 | `cloro_aimode` | Prompt Google AI Mode, get the answer plus cited sources | 4 credits |
 | `cloro_bing_aimode` | Prompt Bing AI Mode, get the answer plus cited sources and citation pills | 4 credits |
 | `cloro_google` | Google Search: organic results, People Also Ask, optional AI Overview (+2) | 3 credits |
+| `cloro_bing` | Bing Search: organic results, optional AI Overview (+2) | 3 credits |
 | `cloro_google_news` | Google News articles with titles, snippets, sources, and dates | 3 credits |
 
 Sync monitor requests carry a +2 credit surcharge on top of the base cost. See the [providers guide](https://cloro.dev/docs/guides/providers) for full, current pricing, including feature add-ons like US state targeting (+2 credits) and extra Google pages (+2 credits per page).
@@ -100,6 +101,8 @@ For `cloro_bing_aimode`, the prompt can have a maximum of 3,500 characters after
 `cloro_aimode` accepts `prompt`, `country`, and an optional Google canonical `location` (e.g. `Austin,Texas,United States`).
 
 `cloro_google` accepts `query`, `country`, `location`, `device` (`desktop`/`mobile`), `pages` (1–10), and `aiOverview` (include Google's AI Overview as markdown with sources, +2 credits).
+
+`cloro_bing` accepts `query`, `country`, and `aiOverview` (include Bing's AI Overview, the AI summary at the top of the results page, as markdown with sources, +2 credits). The country sets the Bing market. Bing Search is not available in CN, KR and RU. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts).
 
 `cloro_google_news` accepts `query`, `country`, and `pages`.
 

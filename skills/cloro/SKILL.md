@@ -5,7 +5,7 @@ description: Monitor how AI assistants and Google answer any prompt with the clo
 
 # Using the cloro tools
 
-The cloro plugin exposes six tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
+The cloro plugin exposes seven tools that submit prompts to real provider interfaces and return parsed answers with cited sources as structured JSON. Use them for AI-visibility and brand monitoring, citation analysis, rank tracking, and news monitoring.
 
 ## Picking the right tool
 
@@ -14,6 +14,7 @@ The cloro plugin exposes six tools that submit prompts to real provider interfac
 - There is no Perplexity tool. cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions.
 - There is no Microsoft Copilot tool. cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions.
 - `cloro_google` — Google Search results: organic ranking, People Also Ask, knowledge graph. Set `aiOverview: true` when the question is about Google's AI Overview.
+- `cloro_bing` — Bing Search results: organic ranking. Set `aiOverview: true` when the question is about Bing's AI Overview (the AI summary at the top of the Bing results page). Not available in CN, KR and RU.
 - `cloro_google_news` — news articles about a brand or topic.
 
 These tools query live provider sessions; they are for observing what providers answer, not a general-purpose web search or a way to chat with the providers.
