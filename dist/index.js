@@ -65,7 +65,7 @@ const ASSISTANT_PROVIDERS = [
 var index_default = definePluginEntry({
   id: "cloro",
   name: "cloro",
-  description: "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, Google AI Mode, Bing AI Mode, Google Search, and Google News responses with parsed text and cited sources.",
+  description: "Monitor how AI assistants and Google answer any prompt: real ChatGPT, Gemini, Google AI Mode, Bing AI Mode, Google Search, Bing Search, and Google News responses with parsed text and cited sources.",
   register(api) {
     const cfg = api.pluginConfig ?? {};
     const defaultCountry = cfg.defaultCountry ?? DEFAULT_COUNTRY;
@@ -95,9 +95,11 @@ var index_default = definePluginEntry({
           )
         }),
         async execute(_id, params) {
+          const country = params.country ?? defaultCountry;
           const body = {
             prompt: params.prompt,
-            country: params.country ?? defaultCountry
+            // The Bing endpoints accept only upper-case country codes.
+            country: provider.tool === "cloro_bing_aimode" ? country.toUpperCase() : country
           };
           if (params.state) body.state = params.state;
           return toToolResult(await cloroRequest(cfg, provider.path, body));
@@ -168,6 +170,31 @@ var index_default = definePluginEntry({
         if (params.pages) body.pages = params.pages;
         if (params.aiOverview) body.include = { aioverview: { markdown: true } };
         return toToolResult(await cloroRequest(cfg, "/v1/monitor/google", body));
+      }
+    });
+    api.registerTool({
+      name: "cloro_bing",
+      description: "Run a Bing search via cloro and get the organic results and, as an option, the AI Overview (Bing's AI summary at the top of the results page) with its cited sources. Use to check Bing rankings or whether a brand appears in Bing's AI Overview. The query can have a maximum of 3,500 characters after URL encoding, fewer for non-Latin scripts. Not available in CN, KR and RU.",
+      parameters: Type.Object({
+        query: Type.String({ description: "The search query to execute on Bing" }),
+        country: Type.Optional(
+          Type.String({
+            description: `ISO 3166-1 alpha-2 country code. It sets the Bing market (default: ${defaultCountry})`
+          })
+        ),
+        aiOverview: Type.Optional(
+          Type.Boolean({
+            description: "Include Bing's AI Overview as markdown with sources (+2 credits)"
+          })
+        )
+      }),
+      async execute(_id, params) {
+        const body = {
+          query: params.query,
+          country: (params.country ?? defaultCountry).toUpperCase()
+        };
+        if (params.aiOverview) body.include = { aioverview: { markdown: true } };
+        return toToolResult(await cloroRequest(cfg, "/v1/monitor/bing", body));
       }
     });
     api.registerTool({
