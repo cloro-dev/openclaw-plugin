@@ -174,7 +174,7 @@ var index_default = definePluginEntry({
     });
     api.registerTool({
       name: "cloro_bing",
-      description: "Run a Bing search via cloro and get the organic results and, as an option, the AI Overview (Bing's AI summary at the top of the results page) with its cited sources. Use to check Bing rankings or whether a brand appears in Bing's AI Overview. The query can have a maximum of 3,500 characters after URL encoding, fewer for non-Latin scripts. Not available in CN, KR and RU.",
+      description: "Run a Bing search via cloro and get the organic results, the ads and, as an option, the AI Overview (Bing's AI summary at the top of the results page) with its cited sources. Use to check Bing rankings or whether a brand appears in Bing's AI Overview. The query can have a maximum of 3,500 characters after URL encoding, fewer for non-Latin scripts. Not available in CN, KR and RU.",
       parameters: Type.Object({
         query: Type.String({ description: "The search query to execute on Bing" }),
         country: Type.Optional(

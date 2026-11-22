@@ -15,7 +15,7 @@ Typical uses: AI-visibility and brand monitoring ("does ChatGPT recommend us?"),
 | `cloro_aimode` | Prompt Google AI Mode, get the answer plus cited sources | 4 credits |
 | `cloro_bing_aimode` | Prompt Bing AI Mode, get the answer plus cited sources and citation pills | 4 credits |
 | `cloro_google` | Google Search: organic results, People Also Ask, optional AI Overview (+2) | 3 credits |
-| `cloro_bing` | Bing Search: organic results, optional AI Overview (+2) | 3 credits |
+| `cloro_bing` | Bing Search: organic results and ads, optional AI Overview (+2) | 3 credits |
 | `cloro_google_news` | Google News articles with titles, snippets, sources, and dates | 3 credits |
 
 Sync monitor requests carry a +2 credit surcharge on top of the base cost. See the [providers guide](https://cloro.dev/docs/guides/providers) for full, current pricing, including feature add-ons like US state targeting (+2 credits) and extra Google pages (+2 credits per page).
