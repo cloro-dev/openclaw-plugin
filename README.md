@@ -102,7 +102,7 @@ For `cloro_bing_aimode`, the prompt can have a maximum of 3,500 characters after
 
 `cloro_google` accepts `query`, `country`, `location`, `device` (`desktop`/`mobile`), `pages` (1–10), and `aiOverview` (include Google's AI Overview as markdown with sources, +2 credits).
 
-`cloro_bing` accepts `query`, `country`, and `aiOverview` (include Bing's AI Overview, the AI summary at the top of the results page, as markdown with sources, +2 credits). The country sets the Bing market. Bing Search is not available in CN, KR and RU. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts).
+`cloro_bing` accepts `query`, `country`, `pages` (1–10, +2 credits per extra page), `first` (the result to start at; no AI Overview when it is more than 1), and `aiOverview` (include Bing's AI Overview, the AI summary at the top of the results page, as markdown with sources, +2 credits). The country sets the Bing market. Bing Search is not available in CN, KR and RU. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts).
 
 `cloro_google_news` accepts `query`, `country`, and `pages`.
 

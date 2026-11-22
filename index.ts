@@ -238,6 +238,17 @@ export default definePluginEntry({
             description: `ISO 3166-1 alpha-2 country code. It sets the Bing market (default: ${defaultCountry})`,
           }),
         ),
+        pages: Type.Optional(
+          Type.Number({
+            description: "Number of result pages to fetch, 1-10 (default 1; +2 credits per extra page)",
+          }),
+        ),
+        first: Type.Optional(
+          Type.Number({
+            description:
+              "The result to start at (default 1). Bing shows no AI Overview when it is more than 1",
+          }),
+        ),
         aiOverview: Type.Optional(
           Type.Boolean({
             description: "Include Bing's AI Overview as markdown with sources (+2 credits)",
@@ -250,6 +261,8 @@ export default definePluginEntry({
           query: params.query,
           country: (params.country ?? defaultCountry).toUpperCase(),
         };
+        if (params.pages) body.pages = params.pages;
+        if (params.first) body.first = params.first;
         if (params.aiOverview) body.include = { aioverview: { markdown: true } };
         return toToolResult(await cloroRequest(cfg, "/v1/monitor/bing", body));
       },
