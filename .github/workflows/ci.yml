@@ -1,0 +1,40 @@
+# Builds dist/index.js on each pull request and on each push to main, and
+# makes sure that the committed dist/index.js agrees with index.ts.
+# Branch protection on main requires the "test" checks of this workflow.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 26]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # The repository has no lockfile, so use npm install, not npm ci.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build
+        run: npm run build
+
+      - name: Check that dist/index.js is up to date
+        run: |
+          if ! git diff --exit-code -- dist/; then
+            echo "::error::dist/index.js does not agree with index.ts. Run npm run build and commit dist/index.js."
+            exit 1
+          fi
