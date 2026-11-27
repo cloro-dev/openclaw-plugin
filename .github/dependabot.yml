@@ -1,0 +1,13 @@
+# Security updates only. `open-pull-requests-limit: 0` stops the version
+# updates. Security updates still come, as one grouped PR for each directory.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ['*']
